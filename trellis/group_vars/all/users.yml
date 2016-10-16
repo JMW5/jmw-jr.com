@@ -2,6 +2,9 @@
 admin_user: admin
 
 # Also define 'vault_users' (`group_vars/staging/vault.yml`, `group_vars/production/vault.yml`)
+web_user: web
+web_group: www-data
+
 users:
   - name: "{{ web_user }}"
     groups:
@@ -16,7 +19,6 @@ users:
       - "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
       # - https://github.com/username.keys
 
-web_user: web
-web_group: www-data
+
 web_sudoers:
   - "/usr/sbin/service php7.0-fpm *"
